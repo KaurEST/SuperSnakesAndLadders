@@ -1,0 +1,125 @@
+@font-face {
+  font-family: pixelFont;
+  src: url(failedattempt.ttf);
+}
+
+body {
+    width: 1140px;
+    margin: 0 auto;;
+    background: url(game-bg.jpg);
+    background-size: cover;
+    font-family: pixelFont;
+}
+
+h2 {
+    font-size: 180%;;
+    margin-top: 0;
+    padding-top: 10px;
+}
+
+nav {
+    height: 60px;
+    background-color: rgba(25, 188, 100, 0.75);
+}
+
+nav ul {
+    list-style: none;
+    margin-top: 0;
+}
+
+
+
+.gameboard {
+    width: 80%;
+    height: 90%;
+    float: left;
+}
+
+table {
+    width: 100%;
+    height: 600px;
+}
+
+table tr td {
+    text-align: center;
+    background-color: rgb(183, 183, 183, 0.85);
+    font-size: 24px;
+    height: 10%;
+    width: 10%;
+}
+
+.player1 {
+    color: red;
+    font-weight: 600;
+}
+
+.player2 {
+    color: white;
+    font-weight: 600;
+}
+
+.sidebar {
+    float: right;
+    width: 20%;
+    height: 598px;
+    background-color: rgba(16, 124, 66, 0.75);
+}
+
+.sidebar p {
+    font-size: 120%;
+    font-weight: 600;
+    color: antiquewhite;
+    margin-left: 15px;
+}
+
+.dice {
+    display: block;
+    height: 90px;
+    border: 1px solid black;
+    border-radius: 10%;
+    margin: 0 auto;
+}
+
+#rollDice, #nextPlayerBtn {
+    display: block;
+    margin: 0 auto;
+    height: 40px;
+    width: 90%;
+    font-size: 30px;
+}
+
+
+
+.activePlayer {
+    padding: 2px;
+    border: 2px solid white;
+}
+
+.pl1, .pl2 {
+    cursor: pointer;
+}
+
+#cell3, #cell5, #cell18, #cell31, #cell41, #cell45, #cell53, #cell58 {
+    background-color: rgba(0, 255, 59, 0.65);
+}
+
+
+
+#cell25, #cell46, #cell49, #cell63, #cell69, #cell81, #cell92, #cell99 {
+    background-color: rgba(226, 42, 42, 0.65);
+}
+
+#cell40, #cell27, #cell43, #cell54, #cell82, #cell66, #cell89, #cell76 {
+    border: 5px dashed rgba(0, 255, 59, 0.35);
+}
+
+#cell4, #cell33, #cell13, #cell42, #cell50, #cell62, #cell44, #cell74 {
+    border: 5px dashed rgba(226, 42, 42, 0.35);
+}
+
+#cell1, #cell7, #cell10, #cell14, #cell26, #cell47, #cell55, #cell65, #cell75, #cell68, #cell70, #cell87, #cell98 {
+    background-color: rgb(255,215,0, 0.9);
+}
+
+
+
