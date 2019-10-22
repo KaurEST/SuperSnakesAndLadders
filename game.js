@@ -209,6 +209,9 @@ document.querySelector(".puRoll").addEventListener("click", function() {
     } else {
         alert("Not enough coins!");
     }
+    
+    document.querySelector(".pl1CoinsAmount").innerHTML = player1coins;
+    document.querySelector(".pl2CoinsAmount").innerHTML = player2coins;
    
 });
 
@@ -334,6 +337,8 @@ document.querySelector(".puOneStep").addEventListener("click", function() {
         alert("Not enough coins!");
     }
     
+    document.querySelector(".pl1CoinsAmount").innerHTML = player1coins;
+    document.querySelector(".pl2CoinsAmount").innerHTML = player2coins;
 
 });
 
@@ -459,6 +464,8 @@ document.querySelector(".puThreeSteps").addEventListener("click", function() {
         alert("Not enough coins!");
     }
     
+    document.querySelector(".pl1CoinsAmount").innerHTML = player1coins;
+    document.querySelector(".pl2CoinsAmount").innerHTML = player2coins;
 
 });
 
