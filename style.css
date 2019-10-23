@@ -9,6 +9,7 @@ body {
     background: url(game-bg.jpg);
     background-size: cover;
     font-family: pixelFont;
+    color: antiquewhite;
 }
 
 h2 {
@@ -64,21 +65,26 @@ table tr td {
     height: 598px;
     background-color: rgba(16, 124, 66, 0.75);
 }
+.puRoll, .puOneStep, .puThreeSteps {
+    cursor: pointer;
+    padding: 6px 2px;
+    color: black;
+    font-weight: 600;
+    text-align: center;
+    border: 2px solid green;
+    background: rgb(108,236,93);
+    background: linear-gradient(0deg, rgba(108,236,93,1) 0%, rgba(222,255,218,1) 100%); 
+}
 
 .sidebar p {
     font-size: 120%;
-    font-weight: 600;
-    color: antiquewhite;
-    margin-left: 15px;
 }
 
-.dice {
-    display: block;
-    height: 90px;
-    border: 1px solid black;
-    border-radius: 10%;
-    margin: 0 auto;
+.players {
+    margin-left: 10px;
 }
+
+
 
 #rollDice, #nextPlayerBtn {
     display: block;
@@ -86,6 +92,16 @@ table tr td {
     height: 40px;
     width: 90%;
     font-size: 30px;
+    
+}
+
+.dice {
+    display: block;
+    height: 90px;
+    width: 45%;
+    border: 1px solid black;
+    border-radius: 10%;
+    margin: 0 auto;
 }
 
 

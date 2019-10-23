@@ -185,7 +185,7 @@ document.querySelector("#nextPlayerBtn").addEventListener("click", function() {
     document.querySelector(".pl1").classList.remove("activePlayer");
     }
     document.querySelector("#rollDice").disabled = false;
-    this.disabled = true;
+    this.disabled = true;    
 });
 
 
@@ -198,14 +198,19 @@ document.querySelector(".puRoll").addEventListener("click", function() {
         usableCoins = player2coins;
     }
     
-    if (usableCoins >= 5) {        
-        if (activePlayer === 1) {
-            player1coins = usableCoins - 5;
-            } else {
-            player2coins = usableCoins - 5;
-            }
-        document.querySelector("#rollDice").disabled = false;
-        document.querySelector("#nextPlayerBtn").disabled = true;
+    if (usableCoins >= 5) {  
+        if (document.querySelector("#rollDice").disabled === false) {
+        alert("Roll your dice first");
+        } else {
+            if (activePlayer === 1) {
+                player1coins = usableCoins - 5;
+                } else {
+                player2coins = usableCoins - 5;
+                }
+            document.querySelector("#rollDice").disabled = false;
+            document.querySelector("#nextPlayerBtn").disabled = true;
+        }
+            
     } else {
         alert("Not enough coins!");
     }
@@ -227,16 +232,14 @@ document.querySelector(".puOneStep").addEventListener("click", function() {
     }
     
     if (usableCoins >= 2) {
-        if (activePlayer === 1) {
-            player1coins = usableCoins - 2;
-            } else {
-            player2coins = usableCoins - 2;
-            }
+        
+        usableCoins -= 2;
+        
         document.querySelector("#cell" + activePos).classList.remove("player" + activePlayer);
         activePos += 1;
         
         switch (activePos) {
-        case 1: activeCoins += 3;
+        case 1: usableCoins += 3;
             coinSound.play();
             break;
         case 3: activePos = 40;
@@ -245,13 +248,13 @@ document.querySelector(".puOneStep").addEventListener("click", function() {
         case 5: activePos = 27;
             goingUp.play();
             break;
-        case 7: activeCoins += 1;
+        case 7: usableCoins += 1;
             coinSound.play();
             break;
-        case 10: activeCoins += 1;
+        case 10: usableCoins += 1;
             coinSound.play();
             break;
-        case 14: activeCoins += 1;
+        case 14: usableCoins += 1;
             coinSound.play();
             break;
         case 18: activePos = 43;
@@ -260,7 +263,7 @@ document.querySelector(".puOneStep").addEventListener("click", function() {
         case 25: activePos = 4;
             goingDown.play();
             break;
-        case 26: activeCoins += 1;
+        case 26: usableCoins += 1;
             coinSound.play();
             break;
         case 31: activePos = 54;
@@ -275,7 +278,7 @@ document.querySelector(".puOneStep").addEventListener("click", function() {
         case 46: activePos = 13;
             goingDown.play();
             break;
-        case 47: activeCoins += 3;
+        case 47: usableCoins += 3;
             coinSound.play();
             break;
         case 49: activePos = 33;
@@ -284,7 +287,7 @@ document.querySelector(".puOneStep").addEventListener("click", function() {
         case 53: activePos = 89;
             goingUp.play();
             break;
-        case 55: activeCoins += 1;
+        case 55: usableCoins += 1;
             coinSound.play();
             break;
         case 58: activePos = 76;
@@ -293,31 +296,31 @@ document.querySelector(".puOneStep").addEventListener("click", function() {
         case 63: activePos = 42;
             goingDown.play();
             break;
-        case 65: activeCoins += 1;
+        case 65: usableCoins += 1;
             coinSound.play();
             break;
-        case 68: activeCoins += 2;
+        case 68: usableCoins += 2;
             coinSound.play();
             break;
         case 69: activePos = 50;
             goingDown.play();
             break;
-        case 70: activeCoins += 2;
+        case 70: usableCoins += 2;
             coinSound.play();
             break;
-        case 75: activeCoins += 3;
+        case 75: usableCoins += 3;
             coinSound.play();
             break;
         case 81: activePos = 62;
             goingDown.play();
             break;
-        case 87: activeCoins += 1;
+        case 87: usableCoins += 1;
             coinSound.play();
             break;
         case 92: activePos = 74;
             goingDown.play();
             break;
-        case 98: activeCoins += 1;
+        case 98: usableCoins += 1;
             coinSound.play();
             break;
         case 99: activePos = 44;
@@ -330,15 +333,19 @@ document.querySelector(".puOneStep").addEventListener("click", function() {
         
             if (activePlayer === 1) {
                 playerPosition1 = activePos;
+                player1coins = usableCoins;
+                document.querySelector(".pl1CoinsAmount").innerHTML = player1coins;
             } else {
                 playerPosition2 = activePos;
+                player2coins = usableCoins;
+                document.querySelector(".pl2CoinsAmount").innerHTML = player2coins;
             }
     } else {
         alert("Not enough coins!");
     }
     
-    document.querySelector(".pl1CoinsAmount").innerHTML = player1coins;
-    document.querySelector(".pl2CoinsAmount").innerHTML = player2coins;
+    
+    
 
 });
 
@@ -353,17 +360,15 @@ document.querySelector(".puThreeSteps").addEventListener("click", function() {
         activePos = playerPosition2;
     }
     
-    if (usableCoins >= 2) {
-        if (activePlayer === 1) {
-            player1coins = usableCoins - 3;
-            } else {
-            player2coins = usableCoins - 3;
-            }
+    if (usableCoins >= 3) {
+        
+        usableCoins -= 3;
+        
         document.querySelector("#cell" + activePos).classList.remove("player" + activePlayer);
         activePos += 2;
         
         switch (activePos) {
-        case 1: activeCoins += 3;
+        case 1: usableCoins += 3;
             coinSound.play();
             break;
         case 3: activePos = 40;
@@ -372,13 +377,13 @@ document.querySelector(".puThreeSteps").addEventListener("click", function() {
         case 5: activePos = 27;
             goingUp.play();
             break;
-        case 7: activeCoins += 1;
+        case 7: usableCoins += 1;
             coinSound.play();
             break;
-        case 10: activeCoins += 1;
+        case 10: usableCoins += 1;
             coinSound.play();
             break;
-        case 14: activeCoins += 1;
+        case 14: usableCoins += 1;
             coinSound.play();
             break;
         case 18: activePos = 43;
@@ -387,7 +392,7 @@ document.querySelector(".puThreeSteps").addEventListener("click", function() {
         case 25: activePos = 4;
             goingDown.play();
             break;
-        case 26: activeCoins += 1;
+        case 26: usableCoins += 1;
             coinSound.play();
             break;
         case 31: activePos = 54;
@@ -402,7 +407,7 @@ document.querySelector(".puThreeSteps").addEventListener("click", function() {
         case 46: activePos = 13;
             goingDown.play();
             break;
-        case 47: activeCoins += 3;
+        case 47: usableCoins += 3;
             coinSound.play();
             break;
         case 49: activePos = 33;
@@ -411,7 +416,7 @@ document.querySelector(".puThreeSteps").addEventListener("click", function() {
         case 53: activePos = 89;
             goingUp.play();
             break;
-        case 55: activeCoins += 1;
+        case 55: usableCoins += 1;
             coinSound.play();
             break;
         case 58: activePos = 76;
@@ -420,31 +425,31 @@ document.querySelector(".puThreeSteps").addEventListener("click", function() {
         case 63: activePos = 42;
             goingDown.play();
             break;
-        case 65: activeCoins += 1;
+        case 65: usableCoins += 1;
             coinSound.play();
             break;
-        case 68: activeCoins += 2;
+        case 68: usableCoins += 2;
             coinSound.play();
             break;
         case 69: activePos = 50;
             goingDown.play();
             break;
-        case 70: activeCoins += 2;
+        case 70: usableCoins += 2;
             coinSound.play();
             break;
-        case 75: activeCoins += 3;
+        case 75: usableCoins += 3;
             coinSound.play();
             break;
         case 81: activePos = 62;
             goingDown.play();
             break;
-        case 87: activeCoins += 1;
+        case 87: usableCoins += 1;
             coinSound.play();
             break;
         case 92: activePos = 74;
             goingDown.play();
             break;
-        case 98: activeCoins += 1;
+        case 98: usableCoins += 1;
             coinSound.play();
             break;
         case 99: activePos = 44;
@@ -457,15 +462,19 @@ document.querySelector(".puThreeSteps").addEventListener("click", function() {
         
             if (activePlayer === 1) {
                 playerPosition1 = activePos;
+                player1coins = usableCoins;
+                document.querySelector(".pl1CoinsAmount").innerHTML = player1coins;
             } else {
                 playerPosition2 = activePos;
+                player2coins = usableCoins;
+                document.querySelector(".pl2CoinsAmount").innerHTML = player2coins;
             }
     } else {
         alert("Not enough coins!");
     }
     
-    document.querySelector(".pl1CoinsAmount").innerHTML = player1coins;
-    document.querySelector(".pl2CoinsAmount").innerHTML = player2coins;
+    
+    
 
 });
 
@@ -473,6 +482,12 @@ document.querySelector(".puThreeSteps").addEventListener("click", function() {
 /*
     2. Better gaming pieces on board.
     4. Buy stuff with coins
+    
+    if (document.querySelector("#rollDice").disabled === false) {
+        alert("Roll your dice first");
+    } else {
+        
+    }
 */
 
 
